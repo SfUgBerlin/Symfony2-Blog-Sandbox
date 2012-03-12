@@ -1,0 +1,49 @@
+
+#sylius_sandbox_core:
+#    resource: @AppCoreBundle/Resources/config/routing.yml
+# content of yml follows
+#sylius_sandbox_core_frontend:
+#    pattern: /
+#    defaults: { _controller: sylius_sandbox_core.controller.frontend:indexAction }
+#
+#sylius_sandbox_core_backend:
+#    pattern: /administration
+#    defaults: { _controller: sylius_sandbox_core.controller.backend:indexAction }
+#end of @AppCoreBundle/Resources/config/routing.yml
+
+
+
+sylius_blogger_backend_post:
+    prefix: /administration/blog/posts
+    resource: @SyliusBloggerBundle/Resources/config/routing/backend/post.yml
+
+sylius_blogger_post:
+    resource: @SyliusBloggerBundle/Resources/config/routing/frontend/post.yml
+    prefix: /blog/posts
+
+sylius_guard_security:
+    resource: @SyliusGuardBundle/Resources/config/routing/frontend/security.yml
+
+
+
+sylius_categorizer_category:
+    resource: @SyliusCategorizerBundle/Resources/config/routing/backend/category.yml
+    prefix: /administration
+
+sylius_categorizer_backend_category:
+    resource: @SyliusCategorizerBundle/Resources/config/routing/frontend/category.yml
+
+sylius_guard_user:
+    resource: @SyliusGuardBundle/Resources/config/routing/frontend/user.yml
+
+sylius_guard_password:
+    resource: @SyliusGuardBundle/Resources/config/routing/frontend/password.yml
+    prefix: /password
+
+sylius_guard_backend_group:
+    resource: @SyliusGuardBundle/Resources/config/routing/backend/group.yml
+    prefix: /administration/groups
+
+sylius_guard_backend_user:
+    resource: @SyliusGuardBundle/Resources/config/routing/backend/user.yml
+    prefix: /administration/users

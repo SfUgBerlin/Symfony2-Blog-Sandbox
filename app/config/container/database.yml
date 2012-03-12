@@ -1,0 +1,13 @@
+
+doctrine:
+    dbal:
+        driver:   %app.database.driver%
+        host:     %app.database.host%
+        port:     %app.database.port%
+        dbname:   %app.database.name%
+        user:     %app.database.user%
+        password: %app.database.password%
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true

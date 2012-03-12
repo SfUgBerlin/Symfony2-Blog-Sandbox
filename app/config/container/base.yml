@@ -1,0 +1,84 @@
+
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: database.yml }
+
+framework:
+    default_locale: %app.locale%
+    form: ~
+    charset:       UTF-8
+    secret: %app.secret%
+    csrf_protection:
+        enabled: true
+    router:        { resource: "%kernel.root_dir%/config/routing/base.yml" }
+    validation:    { enabled: true }
+    translator:    { fallback: %app.locale% }
+    templating:    { engines: ['twig', 'php'] }
+    session:
+        name: BLOG_SANDBOX_SESSION
+        lifetime: 72000
+        auto_start:     true
+
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    read_from:      %kernel.root_dir%/../public
+
+stof_doctrine_extensions:
+    default_locale: %app.locale%
+    orm:
+        default:
+            tree: true
+
+
+sylius_categorizer:
+    driver: doctrine/orm
+#    catalogs:
+#        blog:
+#            property: "posts"
+#            classes:
+#                model: App\Blog\Sandbox\Bundle\BloggerBundle\Entity\Category
+#            templates:
+#                backend:
+#                    list: SandboxBloggerBundle:Backend/Category:list.html.twig
+#                    show: SandboxBloggerBundle:Backend/Category:show.html.twig
+#                    create: SandboxBloggerBundle:Backend/Category:create.html.twig
+#                    update: SandboxBloggerBundle:Backend/Category:update.html.twig
+#                frontend:
+#                    list: SandboxBloggerBundle:Frontend/Category:list.html.twig
+#                    show: SandboxBloggerBundle:Frontend/Category:show.html.twig
+
+
+
+sylius_blogger:
+    driver: doctrine/orm
+    classes:
+        model:
+            post: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Post
+        form:
+            type:
+                post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostFormType
+
+
+sylius_guard:
+    driver: ORM
+    classes:
+        model:
+            user: Sylius\Bundle\GuardBundle\Entity\User
+            group: Sylius\Bundle\GuardBundle\Entity\DefaultGroup
+        form:
+            type:
+                user: Sylius\Bundle\GuardBundle\Form\Type\UserFormType
+        controller:
+            frontend:
+                user: Sylius\Bundle\GuardBundle\Controller\Frontend\UserController
+                security: Sylius\Bundle\GuardBundle\Controller\Frontend\SecurityController
+#    confirmation:
+#        email:
+#            from: foo@bar.com
+#            template: SandboxGuardBundle:Confirmation:email.html.twig

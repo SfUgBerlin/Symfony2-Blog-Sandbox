@@ -1,1 +1,8 @@
 
+web/bundles/
+web/assets/compiled/
+
+
+vendor/
+
+composer.lock

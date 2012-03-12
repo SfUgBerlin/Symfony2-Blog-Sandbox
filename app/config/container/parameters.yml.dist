@@ -1,0 +1,19 @@
+
+parameters:
+    app.url:               http://blog-sandbox.localhost/dev.php
+
+    app.database.driver:   pdo_mysql
+    app.database.host:     localhost
+    app.database.port:     ~
+    app.database.name:     blog_sandbox
+    app.database.user:     ~
+    app.database.password: ~
+
+    app.security.username: administrator
+    app.security.password: ~
+
+    app.locale: en
+
+    app.secret: 7105d4542c26b7dec214bfab78d8da51b
+
+    app.installed: false

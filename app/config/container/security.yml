@@ -1,0 +1,38 @@
+
+security:
+    providers:
+        sylius_guard_provider:
+            chain:
+                providers: [sylius_guard_provider.memory, sylius_guard_provider.database]
+        sylius_guard_provider.memory:
+            memory:
+                users:
+                    administrator:  { password: 79fb86e161e6bee2f14740099c4bee8247926999, roles: 'ROLE_SYLIUS_ADMIN' }
+        sylius_guard_provider.database:
+            id: sylius_guard.security.provider
+    encoders:
+        Application\Bundle\GuardBundle\Entity\User:
+            id: sylius_guard.security.encoder
+        Symfony\Component\Security\Core\User\User:
+            algorithm:   sha1
+            iterations: 1
+            encode_as_base64: false
+    firewalls:
+        main:
+            form_login:
+                provider: sylius_guard_provider
+                login_path: /login
+                check_path: /login
+                use_referer: true
+            remember_me:
+                key: eUodAjYEzDza72
+                name: APP_REMEMBER_ME
+                lifetime: 31536000
+                always_remember_me: true
+                remember_me_parameter: _remember_me
+            logout: true
+            anonymous: true
+    access_control:
+        - { path: "/administration.*", role: ROLE_SYLIUS_ADMIN }
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER

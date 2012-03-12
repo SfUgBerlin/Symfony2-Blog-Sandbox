@@ -1,0 +1,4 @@
+bootstrap.php.cache
+config/container/parameters.yml
+cache/*
+logs/*
