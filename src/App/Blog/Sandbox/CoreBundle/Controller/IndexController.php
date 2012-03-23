@@ -2,15 +2,15 @@
 
 namespace App\Blog\Sandbox\CoreBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class IndexController
+class IndexController extends Controller
 {
     
 
     public function indexAction()
     {
-        return new Response('<html><body>Hello World!</body></html>');
+        return $this->render('SandboxCoreBundle:Frontend:index.html.twig');
     }    
     
 }

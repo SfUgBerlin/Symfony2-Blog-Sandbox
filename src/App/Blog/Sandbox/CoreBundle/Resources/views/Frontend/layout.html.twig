@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{% block title %}{{ 'title.frontend'|trans({}, 'SandboxCoreBundle') }}{% endblock %}</title>
+        <meta charset="UTF-8">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+    </head>
+    <body>
+        <div class="container">
+			<div id="content" class="">
+				{% block content %} {% endblock %}
+			</div>
+        </div>
+    </body>
+</html>
