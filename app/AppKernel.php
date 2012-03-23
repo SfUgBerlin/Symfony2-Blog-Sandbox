@@ -9,6 +9,10 @@ class AppKernel extends Kernel
 	{
 		$bundles = array(
 			/*
+			 * own bundles.
+			 */
+			new \App\Blog\Sandbox\CoreBundle\SandboxCoreBundle(),
+			/*
 			 * Third party bundles.
 			 */
 			new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),

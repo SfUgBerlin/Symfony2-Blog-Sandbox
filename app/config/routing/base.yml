@@ -11,7 +11,9 @@
 #    defaults: { _controller: sylius_sandbox_core.controller.backend:indexAction }
 #end of @AppCoreBundle/Resources/config/routing.yml
 
-
+homepage:
+    pattern: /
+    defaults: { _controller: SandboxCoreBundle:Index:Index }
 
 sylius_blogger_backend_post:
     prefix: /administration/blog/posts
